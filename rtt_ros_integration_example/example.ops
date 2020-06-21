@@ -1,0 +1,23 @@
+import("rtt_ros")
+ros.import("rtt_ros_integration_example")
+
+## Load a HelloRobot component
+loadComponent("hello_robot","HelloRobot")
+
+## Give it a periodic activity
+setActivity("hello_robot",0.0,HighestPriority,ORO_SCHED_RT)
+
+## Create connections
+stream("hello_robot.float_out", ros.topic("float_out"))
+stream("hello_robot.float_in", ros.topic("float_in"))
+stream("hello_robot.string_out", ros.topic("string_out"))
+stream("hello_robot.string_in", ros.topic("string_in"))
+
+## Connect the 
+loadService("hello_robot","rosservice")
+hello_robot.rosservice.connect( "increment", "/increment", "std_srvs/Empty")
+hello_robot.rosservice.connect( "updated", "/updated", "std_srvs/Empty")
+
+## Configure and start the hello_robot component
+hello_robot.configure()
+hello_robot.start()

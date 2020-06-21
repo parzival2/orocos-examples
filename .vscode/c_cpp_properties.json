@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/melodic/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/home/kalyan/Softwares/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}
