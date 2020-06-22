@@ -1,0 +1,18 @@
+import("sender")
+import("receiver")
+
+loadComponent("sender", "Sender")
+loadComponent("receiver", "Receiver")
+// Period can be set from here as well
+var double SENDER_PERIOD = 0.1
+setActivity("sender", SENDER_PERIOD, 50, ORO_SCHED_RT)
+setActivity("receiver", 0, 50, ORO_SCHED_RT)
+// Connect receiver and sender ports
+connect("sender.senderOut", "receiver.receiverEv", ConnPolicy())
+connect("sender.senderOut", "receiver.receiverIn", ConnPolicy())
+// Configure the sender
+sender.configure()
+receiver.configure()
+// Sender can be started using start method
+sender.start()
+receiver.start()
