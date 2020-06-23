@@ -1,0 +1,51 @@
+require("print")
+
+StateMachine States{
+    /**
+    * Initial state of the StateMachine. This will be called when `statemachine_ex.ExampleStateMachine.start()` is called
+    * in the ops script.
+    */
+    initial state Init{
+        entry
+        {
+            print.log(Info, "Statemachine Initialized and is in [Init] state")
+            set Counter = 0
+        }
+        // Change to the Counting10 state to count from 0-10
+        transition select Counting10
+    }
+    /**
+    * Will continue counting to 10 and then switches the state to Counting20 which will start counting to 30.
+    */
+    state Counting10{
+        handle{
+            print.log(Info, "[ExampleStateMachine::Counting10] Updatemethod has been called increasing Counter value")
+            set Counter = Counter + 1
+        }
+        transitions{
+            if (Counter == 10) then
+                select Counting20
+        }
+    }
+
+    /**
+    * Will continue counting to 30 and then starts again from 0. To start from 0 just switch the state to Init where we
+    * initialize our attributes.
+    */
+    state Counting20{
+        handle{
+            print.log(Info, "[ExampleStateMachine::Counting20] Updatemethod has been called increasing Counter value")
+            set Counter = Counter + 1
+        }
+        transitions{
+            if (Counter == 30) then
+                select Init
+        }
+    }
+
+    final state End {
+    }
+}
+
+// Initialize the state machine here.
+RootMachine States ExampleStateMachine
