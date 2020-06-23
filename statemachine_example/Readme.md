@@ -21,7 +21,7 @@ Orocos::scripting::StateMachinePtr mStateMachinePtr =
 
 In-order to compile the component, a line has to be added in `CMakeLists.txt` 
 
-`target_link_libraries(statemachine_example ${OROCOS-RTT_RTT-SCRIPTING_LIBRARY})`
+`target_link_libraries(statemachine_example ${OROCOS-RTT_RTT-SCRIPTING_LIBRARY})` and for other libraries take a look at [this](https://github.com/orocos-toolchain/rtt/blob/master/orocos-rtt-config.cmake) file.
 
 In `deployer` the state machine can be accessed using name and all of its functions using the `.` operator.
 

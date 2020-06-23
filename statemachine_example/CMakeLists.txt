@@ -17,6 +17,10 @@ if (NOT OROCOS-RTT_FOUND)
 endif()
 
 find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
+find_package(OROCOS-RTT EXACT REQUIRED rtt-scripting)
+if (NOT OROCOS-RTT_RTT-SCRIPTING_FOUND)
+    message (FATAL_ERROR "\nCould not find Orocos Scripting library")
+endif()
 
 # Defines the orocos_* cmake macros. See that file for additional
 # documentation.
