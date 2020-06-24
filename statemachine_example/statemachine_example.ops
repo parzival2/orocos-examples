@@ -1,16 +1,14 @@
-import("statemachine_example")
-// Load the component
-loadComponent("statemachine_ex", "Statemachine_example")
-// Set the period so that the state machine along with the update methods are called.
-setActivity("statemachine_ex", 0.1, LowestPriority , ORO_SCHED_OTHER )
+import("statemachine_example");
+loadComponent("statemachine_ex","Statemachine_example");
+setActivity("statemachine_ex", 0.1, LowestPriority , ORO_SCHED_OTHER );
 // Load the service to load the osd script for state machine.
-loadService("statemachine_ex","scripting")
+loadService("statemachine_ex","scripting");
 // Run the state machine script.
-statemachine_ex.scripting.runScript("src/statemachine_example/statemachine_.osd")
-statemachine_ex.ExampleStateMachine.activate()
+statemachine_ex.scripting.runScript("src/statemachine_example/statemachine_.osd");
+statemachine_ex.ExampleStateMachine.activate();
 // Starts evaluating transitions.
-statemachine_ex.ExampleStateMachine.start()
+statemachine_ex.ExampleStateMachine.start();
 // Start the component.
-statemachine_ex.configure()
-statemachine_ex.start()
+statemachine_ex.configure();
+statemachine_ex.start();
 

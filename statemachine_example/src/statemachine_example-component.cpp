@@ -11,7 +11,7 @@ Statemachine_example::Statemachine_example(std::string const& name)
 
 bool Statemachine_example::configureHook()
 {
-    RTT::scripting::ScriptingService::shared_ptr mScriptingSerive =
+    Orocos::scripting::ScriptingService::shared_ptr mScriptingSerive =
         boost::dynamic_pointer_cast<Orocos::scripting::ScriptingService>(
             this->provides()->getService("scripting"));
     if(!mScriptingSerive)
