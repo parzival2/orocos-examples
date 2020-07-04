@@ -12,4 +12,4 @@ The receiver will have an event port that will wake the thread when ever a value
 >
 > Add the line as described in the examples of that file `user    hard    rtprio   99` and reboot.
 >
-> If after rebooting, if you still have the same messages, then the real-time priority can be set by `uname -r 99` and the current priority can be checked using `uname -r`.
+> If after rebooting, if you still have the same messages, then the real-time priority can be set by `ulimit -r 99` and the current priority can be checked using `ulimit -r`.
